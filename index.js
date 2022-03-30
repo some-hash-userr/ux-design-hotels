@@ -8,4 +8,4 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/build/index.html')
 })
 
-app.listen(8000)
+app.listen(3000)
