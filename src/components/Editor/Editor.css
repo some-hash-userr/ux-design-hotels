@@ -1,0 +1,9 @@
+.App-Editor {
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    border: 1px dashed #000000;
+    box-sizing: border-box;
+    width: 798px;
+    margin-left: 90px;
+}
