@@ -1,7 +1,7 @@
 import {FC, useCallback, useMemo, useRef, useState} from "react";
 import {ImageModel} from "../../../data/model/model";
 import {IBlockOperation, InsertImage} from "../../../data/operation/operations";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from '../../../uuid';
 import '../../block/Block.css';
 import inputImageIcon from '../../../svg/inputImage.svg';
 
