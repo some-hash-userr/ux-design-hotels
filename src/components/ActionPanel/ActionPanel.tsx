@@ -7,10 +7,12 @@ import {log} from "util";
 
 interface IProps {
     onAdd: (newBlock: Block) => void;
+    goResults: () => void;
 }
 
 export const ActionPanel: FC<IProps> = ({
-    onAdd
+    onAdd,
+    goResults
 }) => {
     const [state, setState] = useState<'blocks' | 'widgets'>('blocks');
 
@@ -69,7 +71,7 @@ export const ActionPanel: FC<IProps> = ({
                 </div>
             </div>
         }
-        <div className={'App-common__button'} style={{marginTop: '45px'}} onClick={() => console.log('Clicked далее')}>
+        <div className={'App-common__button'} style={{marginTop: '45px'}} onClick={goResults}>
             <div className={'App-common__button__text'}>
                 Далее
             </div>

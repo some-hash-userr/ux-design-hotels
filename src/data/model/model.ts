@@ -28,6 +28,7 @@ export class EmptyImageModel implements IHashable {
 
 export class ImageModel implements IHashable {
     constructor(
+        readonly path: string,
         readonly src: string,
         readonly widthPX: number,
         readonly heightPX: number
@@ -48,7 +49,7 @@ export class TextModel implements IHashable {
     }
 }
 
-type IWidgetModel =
+export type IWidgetModel =
     | EmptyWidgetModel
     | ImageModel
     | EmptyImageModel

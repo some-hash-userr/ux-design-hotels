@@ -23,6 +23,7 @@ import photo9 from './hotels/IMG-01-03-03.png';
 import photoAtmo from './hotels/IMG-02-03-02.png';
 import photo100 from './hotels/IMG-03-01-03.png';
 import {Common} from "./components/common/Common";
+import {Results} from "./components/Results/Results";
 
 
 const value: IValueModel = [
@@ -77,7 +78,7 @@ function App() {
         ])
     }, [model]);
 
-    const [stage, setStage] = useState<'common' | 'edit'>('common');
+    const [stage, setStage] = useState<'common' | 'edit' | 'results'>('common');
 
     return (
         <div className="App-root">
@@ -103,10 +104,13 @@ function App() {
                         width: '382px',
                         height: '500px'
                     }}>
-                        <ActionPanel onAdd={onAddBlock}/>
+                        <ActionPanel goResults={() => setStage('results')} onAdd={onAddBlock}/>
                     </div>
                 </div>
             </>
+            }
+            {stage === 'results' &&
+                <Results model={model}/>
             }
     </div>
     );
