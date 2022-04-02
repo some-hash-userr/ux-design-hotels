@@ -80,7 +80,13 @@ function App() {
 
     const [stage, setStage] = useState<'common' | 'edit' | 'results'>('common');
 
+    // const addStyles = stage === 'results' ?
+    //     { height: '600px' } :
+    //     {}
+
+
     return (
+        // <div className="App-root" style={addStyles}>
         <div className="App-root">
             {stage === 'common' &&
                 <>

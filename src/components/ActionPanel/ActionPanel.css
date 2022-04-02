@@ -12,10 +12,6 @@
     box-shadow: 0 10px 20px rgba(183, 183, 183, 0.25);
     border-radius: 30px;
     padding-bottom: 30px;
-    /*margin-left: 81px;*/
-    /*width: 382px;*/
-    /*height: 500px;*/
-    /*position: fixed;*/
 }
 
 .App-ActionPanel__upLine {
@@ -49,7 +45,7 @@
     margin-left: 3px;
     margin-right: 3px;
     width: 330px;
-    height: 130px;
+    height: 120px;
     border: 1px solid rgba(0, 0, 0, 0.7);;
 }
 
@@ -57,7 +53,7 @@
     margin-left: 3px;
     margin-right: 3px;
     width: 163px;
-    height: 90px;
+    height: 80px;
     border: 1px solid rgba(0, 0, 0, 0.7);;
 }
 

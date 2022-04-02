@@ -1,5 +1,5 @@
 import {ImageModel, IValueModel, IWidgetModel} from "../../data/model/model";
-import {FC} from "react";
+import {FC, useEffect} from "react";
 
 interface IResultsProps {
     model: IValueModel
@@ -15,21 +15,13 @@ export const Results: FC<IResultsProps> = ({model}) => {
         .map((wm) => wm as ImageModel)
         .map((wm) => wm.path);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
-
-
-    // const filesString: string = widgetModels
-    //     .filter((wm) => wm instanceof ImageModel)
-    //         .map((wm) => wm as ImageModel)
-    //         .map((wm) => wm.path)
-    //         .reduce((acc, next) => (`${acc},\n${next}`), '[\n')
-    //     + '\n]'
-    // ;
-
-
-    return <div>
+    return <div className="App-results">
         <div className="App-results__header App-headerText">
-            Замечательно! Эксперимент закончен
+            Задание успешно выполнено. Сообщите об этом модератору
         </div>
         <div className="App-file__list">
             Список выбранных файлов:
@@ -39,6 +31,6 @@ export const Results: FC<IResultsProps> = ({model}) => {
         {imagePaths.map((name) => (
             <div>{name},</div>
         ))}
-        <div>[</div>
+        <div>]</div>
     </div>
 }
