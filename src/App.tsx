@@ -102,7 +102,7 @@ function App() {
                     <Editor value={model} setValue={setModel} mode={'w'}/>
                     <div style={{
                         width: '382px',
-                        height: '500px'
+                        // height: '500px'
                     }}>
                         <ActionPanel goResults={() => setStage('results')} onAdd={onAddBlock}/>
                     </div>

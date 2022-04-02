@@ -40,7 +40,7 @@ export const Common = () => {
         </div>
         <div style={{height: '14px'}}/>
         <div className="Common-buttons-container">
-            <Button title="Апартаменты"/>
+            <Button title="Вид из окна"/>
             <Button title="Холодильник"/>
             <Button title="Телевизор"/>
         </div>

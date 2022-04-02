@@ -6,15 +6,20 @@
 
 .App-Block__item {
     margin: 6px;
+    box-sizing: border-box;
 }
 
 .App-Block__remove {
     position: absolute;
-    top: 30px;
-    right: 30px;
-    /*margin: auto;*/
-    width: 30px;
-    height: 30px;
+    cursor: pointer;
+    top: 10px;
+    right: 5px;
+    width: 45px;
+    height: 45px;
+}
+
+.App-Block__remove:hover {
+    transform: scale(1.1);
 }
 
 .App-EmptyImage__dark {

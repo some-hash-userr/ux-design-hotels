@@ -1,4 +1,4 @@
-import {FC, memo, useMemo} from "react";
+import {FC, memo, useMemo, useRef} from "react";
 import {EmptyImageModel, EmptyWidgetModel, IBlockValue, TextModel} from "../../data/model/model";
 import Text from '../widgets/Text/Text';
 import Image from '../widgets/Image/Image';
@@ -7,7 +7,9 @@ import {EmptyImage} from "../widgets/Image/EmptyImage";
 import {EDITOR_WIDTH} from "../Editor/Editor";
 import {changeBlockValue, IBlockOperation, IValueOperation, RemoveBlock} from "../../data/operation/operations";
 import {EmptyWidget} from "../widgets/EmptyWidget/EmptyWidget";
-import deleteImg from '../../png/delete.png';
+// import deleteImg from '../../png/delete.png';
+import removeImg from '../../png/remove.png';
+import {useHover} from "../../hooks/useHover";
 
 interface IBlockProps {
     value: IBlockValue,
@@ -22,6 +24,9 @@ const Block: FC<IBlockProps> = (
         // perfromBlock
     }
 ) => {
+    const blockRef = useRef<HTMLDivElement>(null);
+    const isBlockHovered = useHover(blockRef)
+
     const widths_heights: Array<{
         width: number,
         height: number
@@ -46,7 +51,10 @@ const Block: FC<IBlockProps> = (
 
         const sumWidth = array2.reduce((acc, {width}) => acc + width, 0);
 
-        const k = (EDITOR_WIDTH)  / sumWidth;
+        const wantedWidth = EDITOR_WIDTH - 12 * (array.length + 1)
+        const k = wantedWidth / sumWidth;
+
+        // const k = (EDITOR_WIDTH)  / sumWidth;
 
 
         return array2.map(({width, height}) => ({
@@ -57,7 +65,7 @@ const Block: FC<IBlockProps> = (
 
 
 
-    return <div className={'App-Block'}>
+    return <div ref={blockRef} className={'App-Block'}>
         {value.map((widget, ind) => {
             const widgetPerformOperation = (factory: (i: number) => IBlockOperation) => {
                 console.log('called inside block');
@@ -89,9 +97,11 @@ const Block: FC<IBlockProps> = (
                           heightPX={widths_heights[ind].height} key={widget.hash()}/>;
         })
         }
-        {/*<img className={'App-Block__remove'}  src={deleteImg} onClick={() => {*/}
-        {/*    performOperation(RemoveBlock());*/}
-        {/*}}/>*/}
+        { isBlockHovered &&
+            <img className={'App-Block__remove'}  src={removeImg} onClick={() => {
+                performOperation(RemoveBlock());
+            }}/>
+        }
     </div>
 }
 
